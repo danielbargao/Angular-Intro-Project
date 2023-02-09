@@ -1,8 +1,8 @@
 <?php
 
-$_POST = json_decode(file_get_contents('php://input'), true)
+$_POST = json_decode(file_get_contents('php://input'), true);
 
-if(isset($_POST) && !empty($_POST)) {
+if (isset($_POST) && !empty($_POST)) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -13,16 +13,16 @@ if(isset($_POST) && !empty($_POST)) {
             "secret": "This is the secret no one know but the admin"
         }
         <?php
-    }
-     else {
+    } else {
         ?>
     {
         "success": false,
         "message": "Invalid Credentials"
     }
     <?php
-    }
-     else {
+    } 
+}
+else {
         ?>
     {
         "success": false,
@@ -30,6 +30,6 @@ if(isset($_POST) && !empty($_POST)) {
     }
     <?php
     }
-}
+
 
 ?>
