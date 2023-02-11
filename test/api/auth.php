@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $_POST = json_decode(file_get_contents('php://input'), true);
 
 if (isset($_POST) && !empty($_POST)) {
@@ -7,6 +9,7 @@ if (isset($_POST) && !empty($_POST)) {
     $password = $_POST['password'];
 
     if ($username == 'admin' && $password == 'admin') {
+        $_SESSION['user'] = 'admin';
         ?>
         {
             "success": true,
