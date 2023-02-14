@@ -12,7 +12,7 @@ export class AdminComponent implements OnInit {
 
   constructor(private user: UserService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.user.getSomeData().subscribe(data => {
       this.message = data.message
     })
