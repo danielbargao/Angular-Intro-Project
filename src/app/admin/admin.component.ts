@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -9,12 +10,17 @@ import { UserService } from '../user.service';
 export class AdminComponent implements OnInit {
 
   message = "Loading..."
+  success = false
 
-  constructor(private user: UserService) { }
+  constructor(private user: UserService, private router: Router) { }
 
   ngOnInit() {
     this.user.getSomeData().subscribe(data => {
-      this.message = data.message
+      if (data.success == false){
+        this.router.navigate(['login'])
+      } else{
+        this.message = data.message
+      }
     })
 
   }

@@ -2,9 +2,7 @@
 
 session_start();
 
-$username = $_SESSION['user'];
-
-if($username == 'admin') {
+if($_SESSION && $_SESSION['user'] == 'admin') {
     echo '{
         "message": "This is a secret message only for administrator",
         "success": true
